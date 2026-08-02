@@ -308,20 +308,7 @@ animation:heroZoom 18s ease-in-out infinite alternate;
 
 }
 
-.hero-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:linear-gradient(
-90deg,
-rgba(18,35,60,.88) 0%,
-rgba(18,35,60,.60) 40%,
-rgba(18,35,60,.20) 100%
-);
-
-}
+/* Removed .hero-overlay and any gradient/opacity/filter rules so the image displays at original brightness */
 
 .hero-content{
 
