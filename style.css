@@ -112,12 +112,25 @@ position:relative;
 
 }
 
+/* Header logo: absolute-left, vertically centered, proportional scaling */
+.logo{
+  position: absolute;
+  left: 12px;              /* small left inset inside the container */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  height: 96px;            /* keep same navbar height for spacing */
+  z-index: 1100;
+}
+
 .logo img{
-
-height:84px;
-
-transition:.35s;
-
+  height: 60px;            /* chosen: 60px (within 55-65px) */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: .35s;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)); /* subtle shadow to read on dark bg */
 }
 
 .menu{
@@ -998,13 +1011,4 @@ margin-top:30px;
 }
 
 /* Preserve responsive behavior: restore space-between on small screens */
-@media (max-width: 800px) {
-  nav {
-    justify-content: space-between;
-  }
-  nav .button {
-    position: static;
-    transform: none;
-    margin-left: 0;
-  }
-}
+...
