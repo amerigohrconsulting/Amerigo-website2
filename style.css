@@ -169,6 +169,39 @@ color:var(--gold);
 
 }
 
+/* Hamburger Menu */
+.hamburger{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+  z-index:1101;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:2px;
+  transition:.35s;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(7px, -7px);
+}
+
 /*==============================
 DROPDOWN
 ==============================*/
@@ -814,6 +847,7 @@ color:var(--navy);
 color:#6b7480;
 
 }
+
 /*==========================================================
 INDUSTRIES
 ==========================================================*/
@@ -998,17 +1032,516 @@ font-weight:600;
 
 .contact-info p{
 
-margin:30px 0;
+margin-bottom:35px;
 
-color:#d7dce3;
-
-}
-
-.contact-info ul{
-
-margin-top:30px;
+line-height:1.8;
 
 }
 
-/* Preserve responsive behavior: restore space-between on small screens */
-...
+.contact-form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.form-group{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.form-group label{
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.form-group input,
+.form-group textarea{
+
+padding:14px 18px;
+
+border:1px solid rgba(255,255,255,.2);
+
+border-radius:8px;
+
+background:rgba(255,255,255,.05);
+
+color:white;
+
+font-family:'Inter',sans-serif;
+
+transition:.35s;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+color:rgba(255,255,255,.5);
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+outline:none;
+
+border-color:var(--gold);
+
+background:rgba(255,255,255,.1);
+
+}
+
+.form-group textarea{
+
+resize:vertical;
+
+min-height:140px;
+
+}
+
+.contact-form .button{
+
+position:static;
+
+transform:none;
+
+align-self:flex-start;
+
+margin-top:10px;
+
+}
+
+/*==========================================================
+FOOTER
+==========================================================*/
+
+footer{
+
+background:rgba(18,35,60,1);
+
+color:white;
+
+padding:40px 0;
+
+text-align:center;
+
+}
+
+.footer-content{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:20px;
+
+}
+
+.footer-content img{
+
+height:45px;
+
+width:auto;
+
+}
+
+footer p{
+
+font-size:.95rem;
+
+opacity:.8;
+
+}
+
+/*==========================================================
+RESPONSIVE: TABLETS (768px)
+==========================================================*/
+
+@media (max-width: 768px){
+
+  /* Header & Nav */
+  nav{
+    height:70px;
+  }
+
+  .logo img{
+    height:48px;
+  }
+
+  .menu{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(18,35,60,.98);
+    backdrop-filter:blur(14px);
+    padding:20px 0;
+    align-items:stretch;
+    min-height:auto;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu li{
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+
+  .menu a{
+    padding:16px 24px;
+    display:block;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+
+  .button{
+    position:static;
+    transform:none;
+    width:calc(100% - 48px);
+    margin:15px 24px 0;
+    right:auto;
+    top:auto;
+  }
+
+  /* Hero */
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .scroll{
+    bottom:25px;
+    font-size:1.5rem;
+  }
+
+  /* Sections */
+  .section{
+    padding:80px 0;
+  }
+
+  .section-title h2{
+    font-size:2.2rem;
+  }
+
+  /* Why Grid */
+  .why-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+  }
+
+  .card{
+    padding:35px;
+  }
+
+  /* Growth Grid */
+  .growth-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+
+  .growth-grid::before{
+    display:none;
+  }
+
+  /* Services */
+  .service-section{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:50px 0;
+  }
+
+  .service-intro{
+    position:relative;
+    top:0;
+  }
+
+  .service-intro h2{
+    font-size:2rem;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* Industries */
+  .industry-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+
+  /* Clients */
+  .client-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* Contact */
+  .contact-wrapper{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+}
+
+/*==========================================================
+RESPONSIVE: MOBILE (480px)
+==========================================================*/
+
+@media (max-width: 480px){
+
+  /* Container */
+  .container{
+    width:95%;
+  }
+
+  /* Header & Nav */
+  nav{
+    height:60px;
+  }
+
+  .logo{
+    left:8px;
+    height:60px;
+  }
+
+  .logo img{
+    height:40px;
+  }
+
+  .hamburger span{
+    width:24px;
+    height:2.5px;
+  }
+
+  .menu{
+    top:60px;
+  }
+
+  .button{
+    width:calc(100% - 32px);
+    margin:12px 16px 0;
+    padding:12px 20px;
+    font-size:.9rem;
+  }
+
+  /* Hero */
+  .hero{
+    min-height:60vh;
+  }
+
+  .hero h1{
+    font-size:1.8rem;
+    line-height:1.2;
+    margin-bottom:15px;
+  }
+
+  .eyebrow{
+    font-size:.7rem;
+    margin-bottom:10px;
+  }
+
+  .hero p{
+    font-size:.9rem;
+    margin-bottom:25px;
+  }
+
+  .scroll{
+    bottom:15px;
+    font-size:1.2rem;
+  }
+
+  /* Sections */
+  .section{
+    padding:60px 0;
+  }
+
+  .section-title{
+    margin-bottom:50px;
+  }
+
+  .section-title span{
+    font-size:.7rem;
+  }
+
+  .section-title h2{
+    font-size:1.8rem;
+    margin:12px 0;
+  }
+
+  .section-title p{
+    font-size:.95rem;
+  }
+
+  /* Why Grid */
+  .why-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .card{
+    padding:25px;
+  }
+
+  .icon{
+    width:60px;
+    height:60px;
+    font-size:1.5rem;
+    margin-bottom:15px;
+  }
+
+  .card h3{
+    font-size:1.1rem;
+    margin-bottom:12px;
+  }
+
+  .card p{
+    font-size:.9rem;
+  }
+
+  /* Growth */
+  .growth-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:50px;
+  }
+
+  .growth-number{
+    width:75px;
+    height:75px;
+    font-size:1.4rem;
+    border:4px solid white;
+  }
+
+  .growth-card h3{
+    font-size:1.2rem;
+  }
+
+  /* Services */
+  .service-wrapper{
+    gap:50px;
+    margin-top:40px;
+  }
+
+  .service-intro h2{
+    font-size:1.6rem;
+  }
+
+  .service-label{
+    font-size:.7rem;
+    margin-bottom:10px;
+  }
+
+  .service-card{
+    padding:20px;
+  }
+
+  .service-card h3{
+    font-size:1rem;
+    margin-bottom:10px;
+  }
+
+  .service-card p{
+    font-size:.85rem;
+  }
+
+  /* Industries */
+  .industry-grid{
+    grid-template-columns:1fr;
+    gap:15px;
+    margin-top:40px;
+  }
+
+  .industry-card{
+    padding:30px 20px;
+  }
+
+  .industry-card h3{
+    font-size:1rem;
+  }
+
+  /* Clients */
+  .client-grid{
+    gap:20px;
+    margin-top:40px;
+  }
+
+  .client-card{
+    padding:25px;
+  }
+
+  .client-card h3{
+    font-size:1.1rem;
+    margin-bottom:12px;
+  }
+
+  .client-card p{
+    font-size:.9rem;
+  }
+
+  /* Contact */
+  .contact{
+    padding:60px 0;
+  }
+
+  .contact-wrapper{
+    gap:40px;
+  }
+
+  .contact-info span{
+    font-size:.85rem;
+  }
+
+  .contact-info p{
+    font-size:.9rem;
+    margin-bottom:25px;
+  }
+
+  .form-group input,
+  .form-group textarea{
+    padding:12px 14px;
+    font-size:.9rem;
+  }
+
+  .form-group textarea{
+    min-height:110px;
+  }
+
+  .contact-form .button{
+    width:100%;
+    margin-top:8px;
+  }
+
+  /* Footer */
+  footer{
+    padding:30px 0;
+  }
+
+  .footer-content img{
+    height:35px;
+  }
+
+  footer p{
+    font-size:.85rem;
+  }
+
+}
