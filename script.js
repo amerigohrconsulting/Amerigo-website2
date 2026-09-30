@@ -3,6 +3,34 @@
 // Premium Website
 // ========================================
 
+// ========================================
+// HAMBURGER MENU
+// ========================================
+
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    menu.classList.remove('active');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('header')) {
+    hamburger.classList.remove('active');
+    menu.classList.remove('active');
+  }
+});
+
 // HEADER
 
 const header = document.getElementById("header");
